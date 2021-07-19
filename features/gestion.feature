@@ -21,6 +21,11 @@ Esquema del escenario: Agregar datos a una lista vacia
 Escenario: Busca un elemento en una lista con datos
     Dado una lista con los siguientes elementos
     | clave | valor |
-    | "lestras" | abcde |
+    | "letras" | abcde |
     | "numero" | 7 |
     Entonces la lista tiene 2 elemento almacenado
+
+Escenario: Borrar una clave de una lista
+    Dado una lista con la pareja clave "clave" y valor "valor"
+    Cuando se elimina la clave "clave"
+    Entonces si se busca la clave "clave" se obtiene NaN

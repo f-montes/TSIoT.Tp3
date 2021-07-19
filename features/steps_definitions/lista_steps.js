@@ -1,5 +1,6 @@
 const { Before, Given, When, Then } = require('@cucumber/cucumber')
 const expect = require("chai").expect;
+const assert = require("chai").assert;
 const Lista = require("../../src/lista.js");
 
 let contexto = {};
@@ -30,4 +31,19 @@ Then('si busco la clave {string} no obtengo ningun valor', function (clave) {
 
 Then('si busco la clave {string} obtengo el valor {}', function (clave, valor) {
     expect(contexto.lista.find(clave)).to.be.equal(valor);
+});
+
+
+/* F. Se debe poder borrar una pareja a partir de la clave */
+
+Given('una lista con la pareja clave {string} y valor {string}', function (clave, valor) {
+    contexto.lista = new Lista();
+});
+
+When('se elimina la clave {string}', function (clave) {
+    expect(contexto.lista.delete(clave)).to.be.true;
+});
+
+Then('si se busca la clave {string} se obtiene NaN', function (clave) {
+    expect(contexto.lista.find(clave)).to.be.NaN;
 });

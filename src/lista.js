@@ -21,4 +21,24 @@ module.exports = class Lista {
     add(clave, valor) {
         this.#elementos.push({clave, valor});
     }
+
+    indexClave(clave) {
+        for(var i = 0; i < this.#elementos.length; i++) {
+            if(this.#elementos[i].clave == clave) {
+                return i;
+            }
+        }
+        return NaN;
+    }
+
+    delete(clave) {
+        var index = this.indexClave(clave);
+        if(!isNaN(index)) {
+            return index
+        }
+        else {
+            this.#elementos.splice(index, 1);
+            return true
+        }
+    }
 }
