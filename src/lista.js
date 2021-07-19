@@ -22,6 +22,7 @@ module.exports = class Lista {
         this.#elementos.push({clave, valor});
     }
 
+    //Genera el indice de la clave 
     indexClave(clave) {
         for(var i = 0; i < this.#elementos.length; i++) {
             if(this.#elementos[i].clave == clave) {
@@ -31,6 +32,7 @@ module.exports = class Lista {
         return NaN;
     }
 
+    // Borra la pareja {clave, valor} a partir de eliminar la 'clave'
     delete(clave) {
         var index = this.indexClave(clave);
         if(!isNaN(index)) {
