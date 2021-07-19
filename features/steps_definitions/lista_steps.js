@@ -1,6 +1,9 @@
+var chai = require("chai");
 const { Before, Given, When, Then } = require('@cucumber/cucumber')
 const expect = require("chai").expect;
 const assert = require("chai").assert;
+const chaiSorted = require("chai-sorted");
+chai.use(chaiSorted);
 const Lista = require("../../src/lista.js");
 
 let contexto = {};
@@ -33,10 +36,12 @@ Then('si busco la clave {string} obtengo el valor {}', function (clave, valor) {
     expect(contexto.lista.find(clave)).to.be.equal(valor);
 });
 
+
 /* Se parte de un escenario con parejas clave valor en la lista */
 Given('una lista con la pareja clave {string} y valor {string}', function (clave, valor) {
     contexto.lista = new Lista();
 });
+
 
 /* F. Se debe poder borrar una pareja a partir de la clave */
 When('se elimina la clave {string}', function (clave) {
@@ -47,6 +52,7 @@ Then('si se busca la clave {string} se obtiene NaN', function (clave) {
     expect(contexto.lista.find(clave)).to.be.NaN;
 });
 
+
 /* E. Se debe poder actualizar un valor asociado a una clave */
 When('se inserta la clave {string} con el valor {string}', function (clave, valor) {
     contexto.lista.add(clave, valor);
@@ -54,4 +60,14 @@ When('se inserta la clave {string} con el valor {string}', function (clave, valo
 
 Then('si se busca la clave {string} se obtiene el valor {string}', function (clave, valor) {
     expect(contexto.lista.find(clave)).to.be.equal(valor);
+});
+
+
+/* G. Se debe poder recuperar una lista ordeanda de las claves almacenadas en la lista */
+When('se listan las claves', function () {
+    contexto.encontrado = contexto.lista.listarClaves().sort();
+});
+
+Then('la lista esta ordenada', function () {
+    expect(contexto.encontrado).to.be.sorted();
 });

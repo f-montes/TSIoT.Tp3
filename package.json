@@ -15,6 +15,7 @@
   "dependencies": {
     "@cucumber/cucumber": "^7.3.0",
     "chai": "^4.3.4",
+    "chai-sorted": "^0.2.0",
     "nyc": "^15.1.0"
   }
 }

@@ -1,7 +1,10 @@
 # TSIoT.Tp3
 Universidad de Buenos Aires | Facultad de Ingenieria
+
 Carrera de Especialista en IoT
+
 Testing de Sistemas IoT
+
 TP3. Práctica BDD (Behavior Driven Development)
 
 El objetivo es completar el desarrollo de una lista que almacena pares clave:valor
@@ -21,7 +24,7 @@ Se deben implementar los siguientes requerimientos:
 Enfoque
 
 Las funcionalidades solicitadas se implementan en la carpeta "src" en el archivo lista.js
-Por otra parte en la carpeta "features" se implementa a traves de dos archivos el testing a traves de cucumber. 
-En uno de los archivos, "gestion.feature", se definen los escenarios y los casos de prueba en un lenguaje entendible por
+Por otra parte en la carpeta "features" se implementa a traves de tres archivos el testing a traves de cucumber. 
+En dos de los archivos, "gestion.feature" y "listar.feature", se definen los escenarios y los casos de prueba en un lenguaje entendible por
 quien debe evaluar desde el lado del usuario por ejemplo. Finalmente, en el archivo "lista_steps.js", se escribe el codigo
-que ejecuta realiza los casos de prueba.
+que realiza los casos de prueba.

@@ -52,5 +52,13 @@ module.exports = class Lista {
             return valor;
         }
         return NaN;
-    }    
+    }  
+    
+    listarClaves() {
+        var claves=[];
+        for(var item of this.#elementos){
+            claves.push(item.clave); 
+        }       
+        return claves;  
+    }
 }
