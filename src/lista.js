@@ -43,4 +43,14 @@ module.exports = class Lista {
             return true
         }
     }
+
+    // Actualiza el valor asociado a una clave
+    actualiza(clave, valor) {
+        var index = this.indexClave(clave);
+        if (!isNaN(index)) {           
+            this.#elementos[index].valor = parseInt(valor);
+            return valor;
+        }
+        return NaN;
+    }    
 }
